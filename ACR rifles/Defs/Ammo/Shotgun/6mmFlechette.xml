@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingCategoryDef>
+    <defName>6mmFlechette</defName>
+    <label>6mm Flechette</label>
+    <parent>AmmoShotguns</parent>
+    <iconPath>UI/Icons/ThingCategories/CaliberShotgun</iconPath>
+  </ThingCategoryDef>
+
+  <!-- ==================== AmmoSet ========================== -->
+
+  <CombatExtended.AmmoSetDef>
+    <defName>AmmoSet_6mm_Flechette</defName>
+    <label>6mm flechette</label>
+    <ammoTypes>
+      <Ammo_6mm_Flechette_Single>6mm_Flechette_Single</Ammo_6mm_Flechette_Single>
+      <Ammo_6mm_Flechette_Double>6mm_Flechette_Double</Ammo_6mm_Flechette_Double>
+      <Ammo_6mm_Flechette_Triple>6mm_Flechette_Triple</Ammo_6mm_Flechette_Triple>
+      <Ammo_6mm_Flechette_AFUCKINGLOT>6mm_Flechette_AFUCKINGLOT</Ammo_6mm_Flechette_AFUCKINGLOT>
+    </ammoTypes>
+  </CombatExtended.AmmoSetDef>
+
+  <!-- ==================== Ammo ========================== -->
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="6mmFlechetteBase" ParentName="SmallAmmoBase" Abstract="True">
+    <description>6mm flechette cartridge, based on 5.56 flechette used in ACR trials.</description>
+    <statBases>
+      <Mass>0.023</Mass>
+      <Bulk>0.06</Bulk>
+    </statBases>
+    <tradeTags>
+      <li>CE_AutoEnableTrade</li>
+      <li>CE_AutoEnableCrafting</li>
+    </tradeTags>
+    <thingCategories>
+      <li>6mmFlechette</li>
+    </thingCategories>
+    <stackLimit>5000</stackLimit>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="6mmFlechetteBase">
+    <defName>Ammo_6mm_Flechette_Single</defName>
+    <label>6mm flechette ammo</label>
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Arruwu4</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.1</MarketValue>
+    </statBases>
+    <ammoClass>Slug</ammoClass>
+    <cookOffProjectile>Bullet_12Gauge_Buck</cookOffProjectile>
+  </ThingDef>
+
+
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="6mmFlechetteBase">
+    <defName>Ammo_6mm_Flechette_Double</defName>
+    <label>6mm flechette ammo (double)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Arruwu3</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.1</MarketValue>
+    </statBases>
+    <ammoClass>BuckShot</ammoClass>
+    <cookOffProjectile>Bullet_12Gauge_Buck</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="6mmFlechetteBase">
+    <defName>Ammo_6mm_Flechette_Triple</defName>
+    <label>6mm flechette ammo (Triple)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Arruwu2</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.1</MarketValue>
+    </statBases>
+    <ammoClass>BuckShot</ammoClass>
+    <cookOffProjectile>Bullet_12Gauge_Buck</cookOffProjectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="6mmFlechetteBase">
+    <defName>Ammo_6mm_Flechette_AFUCKINGLOT</defName>
+    <label>6mm flechette ammo (16 arrows)</label>
+    <graphicData>
+      <texPath>Things/Ammo/Shotgun/Uwu</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.1</MarketValue>
+    </statBases>
+    <ammoClass>BuckShot</ammoClass>
+    <cookOffProjectile>Bullet_12Gauge_Buck</cookOffProjectile>
+  </ThingDef>
+
+  <!-- ================== Projectiles ================== -->
+
+  <ThingDef Class="CombatExtended.AmmoDef" Name="Base6mmmBullet" ParentName="BaseBullet" Abstract="true">
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageDef>Bullet</damageDef>
+      <speed>144</speed>
+      <dropsCasings>true</dropsCasings>
+      <casingMoteDefname>Mote_ShotgunShell</casingMoteDefname>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6mmmBullet">
+    <defName>6mm_Flechette_Single</defName>
+    <label>6mm flechette arrow</label>
+    <graphicData>
+      <texPath>Things/Projectile/Shotgun_Pellet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>16</damageAmountBase>
+      <armorPenetrationSharp>15</armorPenetrationSharp>
+      <armorPenetrationBlunt>50</armorPenetrationBlunt>
+      <spreadMult>3.4</spreadMult>
+    </projectile>
+  </ThingDef>
+
+  <!-- <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base12GaugeBullet"> -->
+  <!-- <defName>Bullet_12Gauge_Bird</defName> -->
+  <!-- <label>birdshot pellet</label> -->
+  <!-- <graphicData> -->
+  <!-- <texPath>Things/Projectile/Shotgun_Pellet</texPath> -->
+  <!-- <graphicClass>Graphic_Single</graphicClass> -->
+  <!-- </graphicData> -->
+  <!-- <projectile Class="CombatExtended.ProjectilePropertiesCE"> -->
+  <!-- <damageAmountBase>1</damageAmountBase> -->
+  <!-- <pelletCount>50</pelletCount> -->
+  <!-- <spreadMult>71.4</spreadMult> -->
+  <!-- <armorPenetrationBase>0.089</armorPenetrationBase> -->
+  <!-- </projectile> -->
+  <!-- </ThingDef> -->
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6mmmBullet">
+    <defName>6mm_Flechette_Double</defName>
+    <label>6mm double flechette arrow</label>
+    <graphicData>
+      <texPath>Things/Projectile/Shotgun_Pellet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>15</damageAmountBase>
+      <pelletCount>2</pelletCount>
+      <armorPenetrationSharp>12</armorPenetrationSharp>
+      <armorPenetrationBlunt>45</armorPenetrationBlunt>
+      <spreadMult>3.8</spreadMult>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6mmmBullet">
+    <defName>6mm_Flechette_Triple</defName>
+    <label>6mm triple flechette arrow</label>
+    <graphicData>
+      <texPath>Things/Projectile/Shotgun_Pellet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>12</damageAmountBase>
+      <pelletCount>3</pelletCount>
+      <armorPenetrationSharp>10</armorPenetrationSharp>
+      <armorPenetrationBlunt>40</armorPenetrationBlunt>
+      <spreadMult>4.2</spreadMult>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef Class="CombatExtended.AmmoDef" ParentName="Base6mmmBullet">
+    <defName>6mm_Flechette_AFUCKINGLOT</defName>
+    <label>smol arrow</label>
+    <graphicData>
+      <texPath>Things/Projectile/Shotgun_Pellet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile Class="CombatExtended.ProjectilePropertiesCE">
+      <damageAmountBase>8</damageAmountBase>
+      <pelletCount>16</pelletCount>
+      <armorPenetrationSharp>8</armorPenetrationSharp>
+      <armorPenetrationBlunt>35</armorPenetrationBlunt>
+      <spreadMult>8.6</spreadMult>
+    </projectile>
+  </ThingDef>
+
+  <!-- ==================== Recipes ========================== -->
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakeAmmo_6mm_Flechette_Single</defName>
+    <label>make 6mm single flechette shell x200</label>
+    <description>Craft 200 12 gauge (Buck) shells.</description>
+    <jobString>Making6mm single flechette shell x200.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_6mm_Flechette_Single>200</Ammo_6mm_Flechette_Single>
+    </products>
+    <workAmount>1500</workAmount>
+  </RecipeDef>
+
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakeAmmo_6mm_Flechette_Double</defName>
+    <label>make 6mm double flechette shell x200</label>
+    <description>Craft 6mm single flechette shell x200.</description>
+    <jobString>Crafting 6mm single flechette shell x200.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>20</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_6mm_Flechette_Double>200</Ammo_6mm_Flechette_Double>
+    </products>
+    <workAmount>2000</workAmount>
+  </RecipeDef>
+
+  <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakeAmmo_6mm_Flechette_Triple</defName>
+    <label>Make 6mm triple flechette shell x200</label>
+    <description>Craft 6mm triple flechette shell x200.</description>
+    <jobString>Craft 6mm triple flechette shell x200.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>24</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_6mm_Flechette_Triple>200</Ammo_6mm_Flechette_Triple>
+    </products>
+    <workAmount>2000</workAmount>
+  </RecipeDef>
+    <RecipeDef ParentName="AmmoRecipeBase">
+    <defName>MakeAmmo_6mm_Flechette_AFUCKINGLOT</defName>
+    <label>Make 6mm bbbbbrrrr flechette shell x200</label>
+    <description>No, you can't shoot 16 arows with one shell! Haha flechette go bbbbbrrrrr.</description>
+    <jobString>Arrows go bbbbbbrrrrr.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Steel</li>
+          </thingDefs>
+        </filter>
+        <count>24</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Steel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <Ammo_6mm_Flechette_AFUCKINGLOT>50</Ammo_6mm_Flechette_AFUCKINGLOT>
+    </products>
+    <workAmount>2000</workAmount>
+  </RecipeDef>
+
+
+  
+
+</Defs>
